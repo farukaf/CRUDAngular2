@@ -17,6 +17,12 @@ namespace Examples.Charge.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(ExampleContext)));
+
+            modelBuilder.Entity<Person>(b =>
+            {
+                b.HasKey(e => e.BusinessEntityID);
+                b.Property(e => e.BusinessEntityID).ValueGeneratedOnAdd();
+            });
         }
 
         public DbSet<Example> Example { get; set; }

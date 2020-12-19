@@ -8,6 +8,9 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate.Interfaces
     public interface IPersonService
     {
         Task<List<Person>> FindAllAsync();
-        Task<Person> Get(int id);
+        Task<Person> GetAsync(int id);
+        Task<Person> PostAsync(Person person);
+        Task<Person> PutAsync(int id, Person person);
+        Task<List<PhoneNumberType>> GetPhoneNumberTypes();
     }
 }

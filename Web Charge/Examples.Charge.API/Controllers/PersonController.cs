@@ -24,9 +24,12 @@ namespace Examples.Charge.API.Controllers
         public async Task<ActionResult<PersonResponse>> Get(int id) => Response(await _facade.GetAsync(id));
 
         [HttpPost]
-        public IActionResult Post([FromBody] PersonRequest request)
-        {
-            return Response(0, null);
-        }
+        public async Task<ActionResult<PersonResponse>> Post([FromBody] PersonRequest request) => Response(await _facade.PostAsync(request));
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PersonResponse>> Put(int id, [FromBody] PersonRequest request) => Response(await _facade.PutAsync(id,request));
+        
+        [HttpGet("phoneNumberTypes")]
+        public async Task<ActionResult<PhoneNumberTypeResponse>> GetPhoneNumberTypes() => Response(await _facade.GetPhoneNumberTypes());
     }
 }
