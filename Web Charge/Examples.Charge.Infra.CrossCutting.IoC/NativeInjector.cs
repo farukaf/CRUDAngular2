@@ -44,6 +44,8 @@ namespace Examples.Charge.Infra.CrossCutting.IoC
             new MapperConfiguration(configuration =>
             {
                 configuration.AddProfile<ExampleProfile>();
+                configuration.AddProfile<PersonProfile>();
+                
             }).CompileMappings();
         }
     }
