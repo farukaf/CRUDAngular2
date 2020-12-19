@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Examples.Charge.Application.Common.Messages;
 using Examples.Charge.Application.Dtos;
 using Examples.Charge.Application.Interfaces;
 using Examples.Charge.Application.Messages.Response;
@@ -26,6 +27,15 @@ namespace Examples.Charge.Application.Facade
             var response = new PersonResponse();
             response.PersonObjects = new List<PersonDto>();
             response.PersonObjects.AddRange(result.Select(x => _mapper.Map<PersonDto>(x)));
+            return response;
+        }
+
+        public async Task<BaseResponse> GetAsync(int id)
+        {
+            var result = await _personService.Get(id);
+            var response = new PersonResponse();
+            response.PersonObjects = new List<PersonDto>();
+            response.PersonObjects.Add(_mapper.Map<PersonDto>(result));
             return response;
         }
     }

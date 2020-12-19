@@ -21,10 +21,7 @@ namespace Examples.Charge.API.Controllers
         public async Task<ActionResult<PersonResponse>> Get() => Response(await _facade.FindAllAsync());
 
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return Response(null);
-        }
+        public async Task<ActionResult<PersonResponse>> Get(int id) => Response(await _facade.GetAsync(id));
 
         [HttpPost]
         public IActionResult Post([FromBody] PersonRequest request)

@@ -77,7 +77,9 @@ namespace Examples.Charge.API
             {
                 options.SwaggerEndpoint("../swagger/v1/swagger.json", "Example Api");
                 options.DisplayRequestDuration();
+#if DEBUG
                 options.RoutePrefix = "";
+#endif
             });
 
 
