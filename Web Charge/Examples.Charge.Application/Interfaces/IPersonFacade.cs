@@ -12,5 +12,6 @@ namespace Examples.Charge.Application.Interfaces
         Task<BaseResponse> PostAsync(PersonRequest request);
         Task<PersonResponse> PutAsync(int id, PersonRequest request);
         Task<PhoneNumberTypeResponse> GetPhoneNumberTypes();
+        Task<PersonResponse> DeleteAsync(int id);
     }
 }    

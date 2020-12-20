@@ -68,5 +68,11 @@ namespace Examples.Charge.Application.Facade
             return response;
         }
 
+        public async Task<PersonResponse> DeleteAsync(int id)
+        {
+            var result = await _personService.DeleteAsync(id);
+            var response = new PersonResponse();
+            return response;
+        }
     }
 }

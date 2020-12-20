@@ -12,5 +12,6 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate.Interfaces
         Task<Person> PostAsync(Person person);
         Task<Person> PutAsync(int id, Person person);
         Task<List<PhoneNumberType>> GetPhoneNumberTypes();
+        Task<int> DeleteAsync(int id);
     }
 }

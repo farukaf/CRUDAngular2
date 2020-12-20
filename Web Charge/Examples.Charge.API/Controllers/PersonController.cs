@@ -4,6 +4,8 @@ using Examples.Charge.Application.Interfaces;
 using Examples.Charge.Application.Messages.Request;
 using Examples.Charge.Application.Messages.Response;
 using System.Threading.Tasks;
+using Examples.Charge.Application.Common.Messages;
+
 namespace Examples.Charge.API.Controllers
 {
     [Route("api/[controller]")]
@@ -28,7 +30,10 @@ namespace Examples.Charge.API.Controllers
 
         [HttpPut("{id}")]
         public async Task<ActionResult<PersonResponse>> Put(int id, [FromBody] PersonRequest request) => Response(await _facade.PutAsync(id,request));
-        
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<BaseResponse>> Delete(int id) => Response(await _facade.DeleteAsync(id));
+
         [HttpGet("phoneNumberTypes")]
         public async Task<ActionResult<PhoneNumberTypeResponse>> GetPhoneNumberTypes() => Response(await _facade.GetPhoneNumberTypes());
     }

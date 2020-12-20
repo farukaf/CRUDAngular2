@@ -23,5 +23,6 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate
 
         public async Task<List<PhoneNumberType>> GetPhoneNumberTypes() => (await _personRepository.FindAllPhoneNumberTypes()).ToList();
 
+        public async Task<int> DeleteAsync(int id) => await _personRepository.DeleteAsync(id);
     }
 }
