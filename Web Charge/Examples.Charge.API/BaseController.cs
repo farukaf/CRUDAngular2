@@ -22,11 +22,7 @@ namespace Examples.Charge.API
             }
             else
             {
-                return Ok(new
-                {
-                    success = true,
-                    data = response
-                });
+                return Ok(response);
             }
         }
 
@@ -34,20 +30,11 @@ namespace Examples.Charge.API
         {
             if (id == null)
             {
-                return Ok(new
-                {
-                    success = true,
-                    data = response
-                });
+                return Ok(response);
             }
             else
             {
-                return CreatedAtAction("Get", new { id },
-                new
-                {
-                    success = true,
-                    data = response ?? new object()
-                });
+                return CreatedAtAction("Get", new { id }, response ?? new object());
             }
         }
     }
