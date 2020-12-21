@@ -1,0 +1,179 @@
+/* You can add global styles to this file, and also import other style files */
+
+:host {
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #333333;
+    color: white;
+}
+
+nav a {
+    color: white;
+}
+
+ul.horizontal-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: default;
+}
+
+ul.horizontal-list>li {
+    float: left;
+    height: 100%;
+}
+
+ul.horizontal-list.right>li {
+    float: right;
+}
+
+ul.horizontal-list>li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav ul.horizontal-list>li a {
+    padding: 16px;
+}
+
+nav ul.horizontal-list>li a:hover {
+    text-decoration: underline;
+    background-color: #111111;
+}
+
+a.home {
+    font-weight: bold;
+}
+
+div.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+}
+
+.btn {
+    padding: 4px 14px;
+    border: solid 1px #888;
+    margin: 12px 6px;
+    border-radius: 15px;
+    color: #333;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #dbd8e8;
+}
+
+.btn-small {
+    padding: 2px 7px;
+    border: solid 1px #888;
+    border-radius: 10px;
+    color: #333;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 2px;
+    font-weight: bold;
+}
+
+.btn-small:hover {
+    background-color: #dbd8e8;
+}
+
+.btn-warning {
+    border: solid 1px #d67e00;
+    color: #d67e00;
+}
+
+.btn-warning:hover {
+    background-color: #ffd69c;
+}
+
+.btn-danger {
+    border: solid 1px #e80e0e;
+    color: #e80e0e;
+}
+
+.btn-danger:hover {
+    background-color: #fabebe;
+}
+
+table {
+    min-width: 100%;
+    border-spacing: 0;
+    text-align: left;
+    border-right: solid 1px #888;
+    border-left: solid 1px #888;
+}
+
+table th {
+    border-bottom: solid 1px #888;
+    border-right: solid 1px #888;
+    border-top: solid 1px #888;
+    padding: 4px 8px;
+    background-color: #70649c;
+    color: white;
+}
+
+table tr>th:last-child {
+    border-right: none !important;
+}
+
+table td {
+    border-bottom: solid 1px #888;
+    border-right: solid 1px #888;
+    padding: 4px 8px;
+}
+
+table tr>td:last-child {
+    border-right: none !important;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+table tbody tr:hover {
+    background-color: #dbd8e8;
+}
+
+.p-1 {
+    padding: 1em;
+}
+
+.p-2 {
+    padding: 2em;
+}
+
+div.horizontal-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}

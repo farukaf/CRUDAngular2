@@ -1,0 +1,29 @@
+<div>
+    <ul class="horizontal-list right">
+        <li>
+            <a class="btn" routerLink="person/add">New</a>
+        </li>
+    </ul>
+</div>
+
+<div class="p-1 horizontal-scroll">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 180px;">#</th>
+                <th>Name</th>
+                <th style="width: 120px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persons">
+                <td>{{person.id}}</td>
+                <td class="no-wrap">{{person.name}}</td>
+                <td>
+                    <a class="btn-small btn-warning" [routerLink]="['person/add/', person.id]">Edit</a>
+                    <a class="btn-small btn-danger" [routerLink]="['person/delete/', person.id]">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -34,6 +34,13 @@ namespace Examples.Charge.API
             NativeInjector.Setup(services);
             services.AddAutoMapper();
 
+#if DEBUG
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+#endif
+
             services.AddSwaggerGen(options =>
             {
                 options.CustomSchemaIds(x => x.FullName);
@@ -82,7 +89,9 @@ namespace Examples.Charge.API
 #endif
             });
 
-
+#if DEBUG
+            app.UseCors(options => options.AllowAnyOrigin());
+#endif
             app.UseMvc();
         }
 
