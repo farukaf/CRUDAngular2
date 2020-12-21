@@ -1,0 +1,48 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item {
+    margin: 5px;
+}
+
+.item>label {
+    width: 100%;
+}
+
+.item>input {
+    width: 100%;
+}
+
+.svg-circleplus {
+    height: 22px;
+    stroke: #70649c;
+}
+
+.svg-circleremove {
+    height: 22px;
+    stroke: #e80e0e;
+    transform: rotate(45deg);
+}
+
+#plus-phone {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-right: 4px;
+}
+
+#remove-phone {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+select {
+    min-width: 180px;
+}

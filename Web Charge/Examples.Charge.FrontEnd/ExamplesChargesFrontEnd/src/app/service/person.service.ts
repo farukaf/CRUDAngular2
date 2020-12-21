@@ -4,13 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Person } from 'src/app/models/person';
 import { PersonResponse } from 'src/app/models/person-response';
+import { PhoneNumberTypeResponse } from '../models/phone-number-type-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
-  private apiServer = "http://localhost:49154/api/";
+  private apiServer = "http://localhost:49156/api/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,6 +26,20 @@ export class PersonService {
       .pipe(
         catchError(this.errorHandler)
       );
+  }
+
+  post(person:Person): Observable<PersonResponse> {
+    return this.httpClient.post<PersonResponse>(this.apiServer + 'person', JSON.stringify(person), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  getPhoneNumberTypes(): Observable<PhoneNumberTypeResponse>{
+    return this.httpClient.get<PhoneNumberTypeResponse>(this.apiServer + 'person/phoneNumberTypes')
+    .pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
