@@ -20,32 +20,34 @@
     </div>
 </section>
 <section>
-    <table>
-        <thead>
-            <th>Number</th>
-            <th>Type</th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let phone of person.phones">
-                <td><input type="text" [(ngModel)]="phone.phoneNumber" placeholder="(00) 0000 0000" /></td>
-                <td>
-                    <select [(ngModel)]="phone.phoneNumberTypeID">
+    <div class="horizontal-scroll ">
+        <table>
+            <thead>
+                <th>Number</th>
+                <th>Type</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let phone of person.phones">
+                    <td><input type="text" [(ngModel)]="phone.phoneNumber" placeholder="(00) 0000 0000" /></td>
+                    <td>
+                        <select [(ngModel)]="phone.phoneNumberTypeID">
                         <option *ngFor="let phoneType of phoneTypes" value="{{phoneType.phoneNumberTypeID}}">{{phoneType.name}}</option>
                     </select>
-                </td>
-                <td>
-                    <button id="remove-phone" (click)="removePhone(phone)">
+                    </td>
+                    <td>
+                        <button id="remove-phone" (click)="removePhone(phone)">
                         <svg class="svg-circleremove" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke-width="7.5"></circle>
                             <line x1="32.5" y1="50" x2="67.5" y2="50" stroke-width="5"></line>
                             <line x1="50" y1="32.5" x2="50" y2="67.5" stroke-width="5"></line>
                           </svg>
                     </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 <section class="grid">
     <div class="item">

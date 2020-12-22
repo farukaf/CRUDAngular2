@@ -20,8 +20,8 @@
                 <td>{{person.id}}</td>
                 <td class="no-wrap ">{{person.name}}</td>
                 <td>
-                    <a class="btn-small btn-warning " [routerLink]="[ 'person/add/', person.id] ">Edit</a>
-                    <a class="btn-small btn-danger " [routerLink]="[ 'person/delete/', person.id] ">Delete</a>
+                    <a class="btn-small btn-warning" href="person/add/{{person.id}}">Edit</a>
+                    <button class="btn-small btn-danger" (click)="deletePerson(person)">Delete</button>
                 </td>
             </tr>
         </tbody>

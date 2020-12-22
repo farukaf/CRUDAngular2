@@ -4,5 +4,5 @@ export interface PersonPhone {
     personID: Number,
     phoneNumber: String,
     phoneNumberTypeID: Number,
-    phoneNumberType: PhoneNumberType
+    phoneNumberType: PhoneNumberType | null
 }

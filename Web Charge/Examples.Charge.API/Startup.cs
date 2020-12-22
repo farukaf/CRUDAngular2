@@ -37,7 +37,11 @@ namespace Examples.Charge.API
 #if DEBUG
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowOrigin", 
+                    options => options
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
             });
 #endif
 
@@ -90,7 +94,11 @@ namespace Examples.Charge.API
             });
 
 #if DEBUG
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors(options => 
+                options
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
 #endif
             app.UseMvc();
         }

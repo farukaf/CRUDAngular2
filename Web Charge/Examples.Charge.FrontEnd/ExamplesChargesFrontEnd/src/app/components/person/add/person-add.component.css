@@ -46,3 +46,7 @@
 select {
     min-width: 180px;
 }
+
+table {
+    border-radius: 20px;
+}

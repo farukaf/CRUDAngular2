@@ -11,12 +11,17 @@ import { PhoneNumberTypeResponse } from '../models/phone-number-type-response';
 })
 export class PersonService {
 
-  private apiServer = "http://localhost:49156/api/";
+  private apiServer = "http://localhost:49158/api/";
 
+  //if authentication place bearer/jwtoken here
+  //move to abstract/base class if more endpoints to same API
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' ,
+      'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT,DELETE' ,
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization' 
+    })      
   }
 
   constructor(private httpClient: HttpClient) { }
@@ -28,8 +33,37 @@ export class PersonService {
       );
   }
 
+  getById(id:Number): Observable<PersonResponse> {
+    return this.httpClient.get<PersonResponse>(this.apiServer + 'person/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  delete(id:Number): Observable<PersonResponse> {
+    return this.httpClient.delete<PersonResponse>(this.apiServer + 'person/' + id)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
   post(person:Person): Observable<PersonResponse> {
+    //less useless data to be serialized and transported
+    person.phones.forEach((x, index, arr) => { 
+      arr[index].phoneNumberType = null; 
+      return x; });
     return this.httpClient.post<PersonResponse>(this.apiServer + 'person', JSON.stringify(person), this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+ 
+  put(person:Person): Observable<PersonResponse> {
+    //less useless data to be serialized and transported
+    person.phones.forEach((x, index, arr) => { 
+      arr[index].phoneNumberType = null; 
+      return x; });
+    return this.httpClient.put<PersonResponse>(this.apiServer + 'person/' + person.id, JSON.stringify(person), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
